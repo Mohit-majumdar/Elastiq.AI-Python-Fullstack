@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - COHERE_API_KEY=${COHERE_API_KEY}
+    env_file:
+      - ./backend/.env
+    volumes:
+      - ./backend/database.db:/app/database.db
+    
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_HOST=0.0.0.0 
+    depends_on:
+      - backend
+    
