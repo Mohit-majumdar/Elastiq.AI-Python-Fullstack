@@ -3,10 +3,10 @@ import { Review } from '../types';
 
 export const analyzeSentiment = async (review: string,movieName:string) => {
     try {
-
+      const BASE_URL = import.meta.env.VITE_API_URL  ;
       const payload = {text: review, moviename: movieName}
       const response = await axios.post(
-        'http://localhost:8000/api/analyze',
+        `${BASE_URL}/analyze`,
         payload
       );
       if (response.status !== 200) {
@@ -35,7 +35,8 @@ export const analyzeSentiment = async (review: string,movieName:string) => {
 
 export const get_reviews = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/reviews');
+      const BASE_URL = import.meta.env.VITE_API_URL  ;
+      const response = await axios.get(`${BASE_URL}/reviews`);
       if (response.status !== 200) {
         console.error('Failed to get all reviews:', response.data);
       }

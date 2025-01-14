@@ -3,9 +3,8 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
-    environment:
-      - COHERE_API_KEY=${COHERE_API_KEY}
     env_file:
+      - .env
       - ./backend/.env
     volumes:
       - ./backend/database.db:/app/database.db
@@ -17,6 +16,9 @@ services:
       - "5173:5173"
     environment:
       - VITE_HOST=0.0.0.0 
+    env_file:
+      - .env
+      - ./frontend/.env
     depends_on:
       - backend
     
