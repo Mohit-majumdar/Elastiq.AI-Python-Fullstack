@@ -46,7 +46,7 @@ The app features:
 ### 🐳 Run with Docker  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/username/my-awesome-project.git  
+   git clone https://github.com/Mohit-majumdar/Elastiq.AI-Python-Fullstack.git   
    ```  
 2. Copy `.env.example` to `.env` and set the required keys:  
    ```bash  
